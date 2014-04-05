@@ -88,12 +88,12 @@ Status: Stable
    gateway 128.238.64.1
    dns-nameservers 8.8.8.8
 
-   #Not internet connected(used for OpenStack Management Network)
+   #No internet connected(used for OpenStack Management Network)
    auto eth1:0
    iface eth1:0 inet static
    address 10.10.10.51
    netmask 255.255.255.0
-   #Not internet connected(used for VM Conf Network)
+   #No internet connected(used for VM Conf Network)
    auto eth1:1
    iface eth1:1 inet static
    address 10.20.20.51
@@ -636,6 +636,7 @@ Status: Stable
    metadata_proxy_shared_secret = helloOpenStack
 
 * Update /etc/quantum/dhcp_agent.ini & /etc/quantum/l3_agent.ini::
+
    auth_url = http://10.10.10.51:35357/v2.0
    auth_region = RegionOne
    admin_tenant_name = service
@@ -673,20 +674,20 @@ Status: Stable
 
 3.4. OpenVSwitch (Part2)
 ------------------
-* Edit the eth2 in /etc/network/interfaces to become like this::
+* Edit the eth1:2 in /etc/network/interfaces to become like this::
 
    # VM internet Access
-   auto eth2
-   iface eth2 inet manual
+   auto eth1:2
+   iface eth1:2 inet manual
    up ifconfig $IFACE 0.0.0.0 up
    up ip link set $IFACE promisc on
    down ip link set $IFACE promisc off
    down ifconfig $IFACE down
 
-* Add the eth2 to the br-ex::
+* Add the eth1:2 to the br-ex::
 
    #Internet connectivity will be lost after this step but this won't affect OpenStack's work
-   ovs-vsctl add-port br-ex eth2
+   ovs-vsctl add-port br-ex eth1:2
 
    #If you want to get internet connection back, you can assign the eth2's IP address to the br-ex in the /etc/network/interfaces file.
 
@@ -746,9 +747,18 @@ Status: Stable
 
 * Perform the following::
    
+   # Internet
+   auto eth0:0
+   iface eth0:0 inet static
+   # ComputeNode-A:128.238.64.32,ComputeNode-B:128.238.64.33,ComputeNode-C:128.238.64.34
+   address 128.238.64.32 
+   netmask 255.255.255.0
+   gateway 128.238.64.1
+   dns-nameservers 8.8.8.8
+   
    # OpenStack management
-   auto eth0
-   iface eth0 inet static
+   auto eth0:1
+   iface eth0:1 inet static
    address 10.10.10.52
    netmask 255.255.255.0
 
