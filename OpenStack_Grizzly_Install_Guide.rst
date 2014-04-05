@@ -9,19 +9,9 @@
 Authors
 ==========
 
-`Bilel Msekni <http://www.linkedin.com/profile/view?id=136237741&trk=tab_pro>`_ 
+`Kevin Zhao <http://www.linkedin.com/pub/kevin-zhao/51/ab6/906>`_ 
 
-Contributors
-==========
 
-=================================================== =======================================================
-
- Houssem Medhioub <houssem.medhioub@it-sudparis.eu> Djamal Zeghlache <djamal.zeghlache@telecom-sudparis.eu>
- Sandeep Raman  <sandeepr@hp.com>                   Sam Stoelinga <sammiestoel@gmail.com>
- Anil Vishnoi <vishnoianil@gmail.com>               Gangur Hrushikesh <>
-=================================================== =======================================================
-
-Wana contribute ? Read the guide, send your contribution and get your name listed ;)
 
 Table of Contents
 =================
@@ -53,7 +43,7 @@ Status: Stable
 ====================
 
 :Node Role: NICs
-:C/Network: eth0 (10.10.10.51), eth1 (128.238.64.31)
+:Ctrl/Network: eth0 (10.10.10.51), eth1 (128.238.64.31)
 :Compute Node: eth0 (10.10.10.52), eth1 (10.20.20.52)
 :Compute Node: eth0 (10.10.10.53), eth1 (10.20.20.53)
 :Compute Node: eth0 (10.10.10.54), eth1 (10.20.20.54)
@@ -1037,18 +1027,10 @@ To start your first VM, we first need to create a new tenant, user and internal 
 
 That's it ! ping your VM and enjoy your OpenStack.
 
-6. Licensing
-============
-
-OpenStack Grizzly Install Guide is licensed under a Creative Commons Attribution 3.0 Unported License.
-
-.. image:: http://i.imgur.com/4XWrp.png
-To view a copy of this license, visit [ http://creativecommons.org/licenses/by/3.0/deed.en_US ].
-
 7. Contacts
 ===========
 
-Bilel Msekni  : bilel.msekni@gmail.com
+Kevin Zhao  : zhao.yuan.work@gmail.com
 
 8. Credits
 =================
