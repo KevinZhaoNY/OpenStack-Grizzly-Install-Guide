@@ -271,6 +271,7 @@ Status: Stable
 * To test Glance, upload the cirros cloud image directly from the internet::
 
    glance image-create --name myFirstImage --is-public true --container-format bare --disk-format qcow2 --location http://download.cirros-cloud.net/0.3.1/cirros-0.3.1-x86_64-disk.img
+   #note: please don't use this image later,because you will probably enconter HTTP500 erro when this vm is being downloaded during VM spawn.You should delete this image and create a new one using GUI.
 
 * Now list the image to see what you have just uploaded::
 
@@ -451,12 +452,16 @@ Status: Stable
    rootwrap_config=/etc/cinder/rootwrap.conf
    sql_connection = mysql://cinderUser:cinderPass@10.10.10.51/cinder
    api_paste_config = /etc/cinder/api-paste.ini
-   iscsi_helper=ietadm
+   iscsi_helper=tgtadm
    volume_name_template = volume-%s
    volume_group = cinder-volumes
    verbose = True
    auth_strategy = keystone
    iscsi_ip_address=10.10.10.51
+   #resolution for bug https://bugs.launchpad.net/ubuntu/+source/cinder/+bug/1171312
+   state_path = /var/lib/cinder
+   lock_path = /var/lock/cinder
+   volumes_dir = /var/lib/cinder/volumes
 
 * Then, synchronize your database::
 
@@ -630,6 +635,16 @@ Status: Stable
 
    metadata_proxy_shared_secret = helloOpenStack
 
+* Update /etc/quantum/dhcp_agent.ini & /etc/quantum/l3_agent.ini::
+   auth_url = http://10.10.10.51:35357/v2.0
+   auth_region = RegionOne
+   admin_tenant_name = service
+   admin_user = quantum
+   admin_password = service_pass
+   metadata_ip = 10.10.10.51
+   metadata_port = 8775
+   root_helper = sudo /usr/bin/quantum-rootwrap /etc/quantum/rootwrap.conf
+
 * Make sure that your rabbitMQ IP in /etc/quantum/quantum.conf is set to the controller node::
 
    rabbit_host = 10.10.10.51
@@ -689,7 +704,6 @@ Status: Stable
 
    apt-get install -y ubuntu-cloud-keyring 
    echo deb http://ubuntu-cloud.archive.canonical.com/ubuntu precise-updates/grizzly main >> /etc/apt/sources.list.d/grizzly.list
-
 
 * Update your system::
 
@@ -775,6 +789,9 @@ Status: Stable
    listen_tls = 0
    listen_tcp = 1
    auth_tcp = "none"
+   
+* Avoid "libvirt-sock not found" Exception by updating /etc/libvirt/libvirtd.conf file::
+   unix_sock_dir = "/var/run/libvirt"
 
 * Edit libvirtd_opts variable in /etc/init/libvirt-bin.conf file::
 
@@ -931,6 +948,7 @@ Status: Stable
    volume_api_class=nova.volume.cinder.API
    osapi_volume_listen_port=5900
    cinder_catalog_info=volume:cinder:internalURL
+   iscsi_ip_address=10.10.10.51
 
 * Restart nova-* services::
 
