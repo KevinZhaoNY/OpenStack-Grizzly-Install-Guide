@@ -53,7 +53,7 @@ Status: Stable
 ====================
 
 :Node Role: NICs
-:Control Node/Network Node: eth0 (10.10.10.51), eth1 (128.238.64.31)
+:Controller/Network: eth0 (10.10.10.51), eth1 (128.238.64.31)
 :Compute Node: eth0 (10.10.10.52), eth1 (10.20.20.52)
 :Compute Node: eth0 (10.10.10.53), eth1 (10.20.20.53)
 :Compute Node: eth0 (10.10.10.54), eth1 (10.20.20.54)
@@ -62,7 +62,7 @@ Status: Stable
 
 **Note 2:** This is my current network architecture, you can add as many compute node as you wish.
 
-.. image:: http://i.imgur.com/Frsughe.jpg
+.. image:: http://i.imgur.com/imEifJP.png
 
 2. Controller Node
 ===============
