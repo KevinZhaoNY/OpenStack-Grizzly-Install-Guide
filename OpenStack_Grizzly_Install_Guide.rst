@@ -53,9 +53,10 @@ Status: Stable
 ====================
 
 :Node Role: NICs
-:Control Node: eth0 (10.10.10.51), eth1 (192.168.100.51)
-:Network Node: eth0 (10.10.10.52), eth1 (10.20.20.52), eth2 (192.168.100.52)
+:Control Node/Network Node: eth0 (10.10.10.51), eth1 (128.238.64.31)
+:Compute Node: eth0 (10.10.10.52), eth1 (10.20.20.52)
 :Compute Node: eth0 (10.10.10.53), eth1 (10.20.20.53)
+:Compute Node: eth0 (10.10.10.54), eth1 (10.20.20.54)
 
 **Note 1:** Always use dpkg -s <packagename> to make sure you are using grizzly packages (version : 2013.1)
 
@@ -90,17 +91,22 @@ Status: Stable
 * Only one NIC should have an internet access::
 
    #For Exposing OpenStack API over the internet
-   auto eth1
-   iface eth1 inet static
-   address 192.168.100.51
-   netmask 255.255.255.0
-   gateway 192.168.100.1
-   dns-nameservers 8.8.8.8
-
-   #Not internet connected(used for OpenStack management)
    auto eth0
    iface eth0 inet static
+   address 128.238.64.31
+   netmask 255.255.255.0
+   gateway 128.238.64.1
+   dns-nameservers 8.8.8.8
+
+   #Not internet connected(used for OpenStack Management Network)
+   auto eth1:0
+   iface eth1:0 inet static
    address 10.10.10.51
+   netmask 255.255.255.0
+   #Not internet connected(used for VM Conf Network)
+   auto eth1:1
+   iface eth1:1 inet static
+   address 10.20.20.51
    netmask 255.255.255.0
 
 * Restart the networking service::
@@ -207,7 +213,7 @@ Status: Stable
    export OS_TENANT_NAME=admin
    export OS_USERNAME=admin
    export OS_PASSWORD=admin_pass
-   export OS_AUTH_URL="http://192.168.100.51:5000/v2.0/"
+   export OS_AUTH_URL="http://128.238.64.31:5000/v2.0/"
 
    # Load it:
    source creds
@@ -374,7 +380,7 @@ Status: Stable
 
    # Vnc configuration
    novnc_enabled=true
-   novncproxy_base_url=http://192.168.100.51:6080/vnc_auto.html
+   novncproxy_base_url=http://128.238.64.31:6080/vnc_auto.html
    novncproxy_port=6080
    vncserver_proxyclient_address=10.10.10.51
    vncserver_listen=0.0.0.0
@@ -439,7 +445,7 @@ Status: Stable
    [filter:authtoken]
    paste.filter_factory = keystoneclient.middleware.auth_token:filter_factory
    service_protocol = http
-   service_host = 192.168.100.51
+   service_host = 128.238.64.31
    service_port = 5000
    auth_host = 10.10.10.51
    auth_port = 35357
@@ -511,7 +517,7 @@ Status: Stable
 
    service apache2 restart; service memcached restart
 
-* Check OpenStack Dashboard at http://192.168.100.51/horizon. We can login with the admin / admin_pass
+* Check OpenStack Dashboard at http://128.238.64.31/horizon. We can login with the admin / admin_pass
 
 
 3. Network Node
@@ -563,28 +569,7 @@ Status: Stable
    # To save you from rebooting, perform the following
    sysctl net.ipv4.ip_forward=1
 
-3.2.Networking
-------------
 
-* 3 NICs must be present::
-   
-   # OpenStack management
-   auto eth0
-   iface eth0 inet static
-   address 10.10.10.52
-   netmask 255.255.255.0
-
-   # VM Configuration
-   auto eth1
-   iface eth1 inet static
-   address 10.20.20.52
-   netmask 255.255.255.0
-
-   # VM internet Access
-   auto eth2
-   iface eth2 inet static
-   address 192.168.100.52
-   netmask 255.255.255.0
 
 3.4. OpenVSwitch (Part1)
 ------------------
@@ -631,7 +616,7 @@ Status: Stable
    tunnel_id_ranges = 1:1000
    integration_bridge = br-int
    tunnel_bridge = br-tun
-   local_ip = 10.20.20.52
+   local_ip = 10.20.20.51
    enable_tunneling = True
 
    #Firewall driver for realizing quantum security group function
@@ -760,13 +745,13 @@ Status: Stable
    # OpenStack management
    auto eth0
    iface eth0 inet static
-   address 10.10.10.53
+   address 10.10.10.52
    netmask 255.255.255.0
 
    # VM Configuration
    auto eth1
    iface eth1 inet static
-   address 10.20.20.53
+   address 10.20.20.52
    netmask 255.255.255.0
 
 4.3 KVM
@@ -844,7 +829,7 @@ Status: Stable
    tunnel_id_ranges = 1:1000
    integration_bridge = br-int
    tunnel_bridge = br-tun
-   local_ip = 10.20.20.53
+   local_ip = 10.20.20.52
    enable_tunneling = True
    
    #Firewall driver for realizing quantum security group function
@@ -924,9 +909,9 @@ Status: Stable
 
    # Vnc configuration
    novnc_enabled=true
-   novncproxy_base_url=http://192.168.100.51:6080/vnc_auto.html
+   novncproxy_base_url=http://128.238.64.31:6080/vnc_auto.html
    novncproxy_port=6080
-   vncserver_proxyclient_address=10.10.10.53
+   vncserver_proxyclient_address=10.10.10.52
    vncserver_listen=0.0.0.0
 
    # Network settings
