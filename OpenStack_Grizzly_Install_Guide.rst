@@ -748,25 +748,27 @@ Status: Stable
 * Perform the following::
    
    # Internet
-   auto eth0:0
-   iface eth0:0 inet static
+   auto eth0
+   iface eth0 inet static
    # ComputeNode-A:128.238.64.32,ComputeNode-B:128.238.64.33,ComputeNode-C:128.238.64.34
-   address 128.238.64.32 
+   address 128.238.64.32
    netmask 255.255.255.0
    gateway 128.238.64.1
-   dns-nameservers 8.8.8.8
-   
+   dns-nameservers 128.238.1.69 128.238.1.68
+
    # OpenStack management
-   auto eth0:1
-   iface eth0:1 inet static
+   auto eth1:0
+   iface eth1:0 inet static
    address 10.10.10.52
    netmask 255.255.255.0
 
    # VM Configuration
-   auto eth1
-   iface eth1 inet static
+   auto eth1:1
+   iface eth1:1 inet static
    address 10.20.20.52
    netmask 255.255.255.0
+   
+* restart the network::
 
 4.3 KVM
 ------------------
@@ -1028,7 +1030,7 @@ To start your first VM, we first need to create a new tenant, user and internal 
    export OS_TENANT_NAME=project_one
    export OS_USERNAME=user_one
    export OS_PASSWORD=user_one
-   export OS_AUTH_URL="http://192.168.100.51:5000/v2.0/"
+   export OS_AUTH_URL="http://128.238.64.315000/v2.0/"
 
    source creds_proj_one
 
