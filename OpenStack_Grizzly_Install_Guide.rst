@@ -791,7 +791,10 @@ Status: Stable
    "/dev/ptmx", "/dev/kvm", "/dev/kqemu",
    "/dev/rtc", "/dev/hpet","/dev/net/tun"
    ]
-
+   
+* Avoid "libvirt-sock not found" Exception by updating /etc/libvirt/libvirtd.conf file::
+   unix_sock_dir = "/var/run/libvirt"
+   
 * Delete default virtual bridge ::
 
    virsh net-destroy default
@@ -802,9 +805,7 @@ Status: Stable
    listen_tls = 0
    listen_tcp = 1
    auth_tcp = "none"
-   
-* Avoid "libvirt-sock not found" Exception by updating /etc/libvirt/libvirtd.conf file::
-   unix_sock_dir = "/var/run/libvirt"
+
 
 * Edit libvirtd_opts variable in /etc/init/libvirt-bin.conf file::
 
