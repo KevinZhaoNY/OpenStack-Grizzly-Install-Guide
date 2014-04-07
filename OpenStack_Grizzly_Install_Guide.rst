@@ -745,7 +745,7 @@ Status: Stable
 4.2.Networking
 ------------
 
-* Perform the following::
+* Perform the following by editing /etc/network/interfaces::
    
    # Internet
    auto eth0
@@ -769,6 +769,7 @@ Status: Stable
    netmask 255.255.255.0
    
 * restart the network::
+   service networking restart
 
 4.3 KVM
 ------------------
