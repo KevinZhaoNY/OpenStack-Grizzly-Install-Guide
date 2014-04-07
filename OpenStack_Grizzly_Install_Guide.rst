@@ -792,6 +792,13 @@ Status: Stable
    "/dev/rtc", "/dev/hpet","/dev/net/tun"
    ]
    
+
+* Enable live migration by updating /etc/libvirt/libvirtd.conf file::
+
+   listen_tls = 0
+   listen_tcp = 1
+   auth_tcp = "none"
+   
 * Avoid "libvirt-sock not found" Exception by updating /etc/libvirt/libvirtd.conf file::
    unix_sock_dir = "/var/run/libvirt"
    
@@ -799,13 +806,6 @@ Status: Stable
 
    virsh net-destroy default
    virsh net-undefine default
-
-* Enable live migration by updating /etc/libvirt/libvirtd.conf file::
-
-   listen_tls = 0
-   listen_tcp = 1
-   auth_tcp = "none"
-
 
 * Edit libvirtd_opts variable in /etc/init/libvirt-bin.conf file::
 
@@ -850,7 +850,7 @@ Status: Stable
    tunnel_id_ranges = 1:1000
    integration_bridge = br-int
    tunnel_bridge = br-tun
-   local_ip = 10.20.20.52
+   local_ip = 10.20.20.51
    enable_tunneling = True
    
    #Firewall driver for realizing quantum security group function
