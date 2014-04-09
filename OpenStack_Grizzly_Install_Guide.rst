@@ -932,6 +932,7 @@ Status: Stable
    novnc_enabled=true
    novncproxy_base_url=http://128.238.64.31:6080/vnc_auto.html
    novncproxy_port=6080
+   #compute-node-A:10.10.10.52,compute-node-B:10.10.10.53,compute-node-C:10.10.10.54
    vncserver_proxyclient_address=10.10.10.52
    vncserver_listen=0.0.0.0
 
