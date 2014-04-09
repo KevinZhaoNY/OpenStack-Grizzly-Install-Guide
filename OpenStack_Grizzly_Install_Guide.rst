@@ -1079,6 +1079,10 @@ This work has been based on:
 Your suggestions are always welcomed.
 
 
+(1)ERROR [quantum.plugins.openvswitch.agent.ovs_quantum_agent] Failed to create OVS patch port. Cannot have tunneling enabled on this agent, since this version of OVS does not support tunnels or patch ports. Agent terminated!
+http://blog.vpetkov.net/2013/08/31/openstack-quantum-open-vswitch-datapath-for-tunnels-or-patch-ports/
+
+
 
 
 
