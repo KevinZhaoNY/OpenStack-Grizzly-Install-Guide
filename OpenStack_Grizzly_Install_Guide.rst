@@ -850,7 +850,8 @@ Status: Stable
    tunnel_id_ranges = 1:1000
    integration_bridge = br-int
    tunnel_bridge = br-tun
-   local_ip = 10.20.20.51
+   #compute-node-A:10.10.10.52,compute-node-B:10.10.10.53,compute-node-C:10.10.10.54
+   local_ip = 10.20.20.52
    enable_tunneling = True
    
    #Firewall driver for realizing quantum security group function
