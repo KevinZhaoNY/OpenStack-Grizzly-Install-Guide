@@ -1133,8 +1133,11 @@ https://bugs.launchpad.net/ubuntu/+source/libvirt/+bug/918343
 
 Solution -2 :
 apt-get purge libvirt-bin pm-utils
-apt-get install -y libvirt-bin pm-utils
+apt-get install -y kvm libvirt-bin pm-utils
 service libvirt-bin restart
+apt-get install nova-api-metadata nova-compute-kvm
+cd /etc/init.d/; for i in $( ls nova-* ); do sudo service $i restart; done
+
 
 
 Error
