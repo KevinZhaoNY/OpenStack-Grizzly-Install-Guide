@@ -1087,7 +1087,7 @@ http://blog.vpetkov.net/2013/08/31/openstack-quantum-open-vswitch-datapath-for-t
 
 
 
-
+* Troubleshooting
 These are some notes from troubleshooting common OpenStack Errors that I have run into in the past year. These were mostly from Diablo and Essex but some are applicable to future releases especially surrounding Nova.
 
 /*Check all services
@@ -1122,7 +1122,7 @@ thon2.7/dist-packages/nova/virt/libvirt/connection.py”, line 338, in _connect
 Look in:
 root@:/home/brent/openstack# cat /var/log/libvirt/libvirtd.log
 
-Solution:
+Solution - 1:
 libvirt-bin service will not start without dbus installed.
 
 Make sure dbus is running ps –ea |grep dbus
@@ -1130,6 +1130,11 @@ And
 sudo apt-get install lxc
 
 https://bugs.launchpad.net/ubuntu/+source/libvirt/+bug/918343
+
+Solution -2 :
+apt-get purge libvirt-bin pm-utils
+apt-get install -y libvirt-bin pm-utils
+service libvirt-bin restart
 
 
 Error
