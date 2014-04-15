@@ -759,12 +759,14 @@ Status: Stable
    # OpenStack management
    auto eth1:0
    iface eth1:0 inet static
+   # ComputeNode-A:10.10.10.52,ComputeNode-B:10.10.10.53.ComputeNode-C:10.10.10.54
    address 10.10.10.52
    netmask 255.255.255.0
 
    # VM Configuration
    auto eth1:1
    iface eth1:1 inet static
+   # ComputeNode-A:10.20.20.52,ComputeNode-B:10.20.20.53.ComputeNode-C:10.20.20.54
    address 10.20.20.52
    netmask 255.255.255.0
    
