@@ -769,6 +769,7 @@ Status: Stable
    netmask 255.255.255.0
    
 * restart the network::
+   
    service networking restart
 
 4.3 KVM
@@ -800,8 +801,11 @@ Status: Stable
    auth_tcp = "none"
    
 * Avoid "libvirt-sock not found" Exception by updating /etc/libvirt/libvirtd.conf file::
+   
    unix_sock_dir = "/var/run/libvirt"
+   
 * Restart the libvirt service and dbus to load the new values::
+   
    service dbus restart && service libvirt-bin restart
     
 * Delete default virtual bridge ::
