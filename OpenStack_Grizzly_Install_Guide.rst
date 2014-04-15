@@ -801,7 +801,9 @@ Status: Stable
    
 * Avoid "libvirt-sock not found" Exception by updating /etc/libvirt/libvirtd.conf file::
    unix_sock_dir = "/var/run/libvirt"
-   
+* Restart the libvirt service and dbus to load the new values::
+   service dbus restart && service libvirt-bin restart
+    
 * Delete default virtual bridge ::
 
    virsh net-destroy default
@@ -810,10 +812,6 @@ Status: Stable
 * Edit libvirtd_opts variable in /etc/init/libvirt-bin.conf file::
 
    env libvirtd_opts="-d -l"
-
-* Edit /etc/default/libvirt-bin file ::
-
-   libvirtd_opts="-d -l"
 
 * Restart the libvirt service and dbus to load the new values::
 
