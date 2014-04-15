@@ -749,7 +749,8 @@ Status: Stable
    # Internet
    auto eth0
    iface eth0 inet static
-   # ComputeNode-A:128.238.64.32,ComputeNode-B:128.238.64.33,ComputeNode-C:128.238.64.34
+   #The following ip address depends on which compute-node you are working on 
+   #compute-node-A:128.238.64.32,compute-node-B:128.238.64.33,compute-node-C:128.238.64.34
    address 128.238.64.32
    netmask 255.255.255.0
    gateway 128.238.64.1
@@ -758,14 +759,16 @@ Status: Stable
    # OpenStack management
    auto eth1:0
    iface eth1:0 inet static
-   # ComputeNode-A:10.10.10.52,ComputeNode-B:10.10.10.53.ComputeNode-C:10.10.10.54
+   #The following ip address depends on which compute-node you are working on
+   # compute-node-A:10.10.10.52,compute-node-B:10.10.10.53.compute-node-C:10.10.10.54
    address 10.10.10.52
    netmask 255.255.255.0
 
    # VM Configuration
    auto eth1:1
    iface eth1:1 inet static
-   # ComputeNode-A:10.20.20.52,ComputeNode-B:10.20.20.53.ComputeNode-C:10.20.20.54
+   #The following ip address depends on which compute-node you are working on
+   # compute-node-A:10.20.20.52,compute-node-B:10.20.20.53.compute-node-C:10.20.20.54
    address 10.20.20.52
    netmask 255.255.255.0
    
@@ -853,6 +856,7 @@ Status: Stable
    tunnel_id_ranges = 1:1000
    integration_bridge = br-int
    tunnel_bridge = br-tun
+   #The following ip address depends on which compute-node you are working on
    #compute-node-A:10.10.10.52,compute-node-B:10.10.10.53,compute-node-C:10.10.10.54
    local_ip = 10.20.20.52
    enable_tunneling = True
@@ -936,6 +940,7 @@ Status: Stable
    novnc_enabled=true
    novncproxy_base_url=http://128.238.64.31:6080/vnc_auto.html
    novncproxy_port=6080
+   #The following ip address depends on which compute-node you are working on
    #compute-node-A:10.10.10.52,compute-node-B:10.10.10.53,compute-node-C:10.10.10.54
    vncserver_proxyclient_address=10.10.10.52
    vncserver_listen=0.0.0.0
