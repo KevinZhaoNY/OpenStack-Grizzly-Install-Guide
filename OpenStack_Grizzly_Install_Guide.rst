@@ -1086,20 +1086,4 @@ This work has been based on:
 Solution: http://blog.vpetkov.net/2013/08/31/openstack-quantum-open-vswitch-datapath-for-tunnels-or-patch-ports/
 
 
-[sql]
-connection = mysql://keystone:openstack@localhost:3306/keystone
-
-
-Problem $ glance index
-Failed to show index. Got error:
-Connect error/bad request to Auth service at URL %(url)s.
-
-Resolution: Make sure you have “SERVICE_ENDPOINT” and “OS_AUTH_URL” exported.
-
-export SERVICE_TOKEN=openstack
-export OS_TENANT_NAME=admin
-export OS_USERNAME=admin
-export OS_PASSWORD=openstack
-export OS_AUTH_URL=http://localhost:5000/v2.0/
-export SERVICE_ENDPOINT=http://localhost:35357/v2.0
 
