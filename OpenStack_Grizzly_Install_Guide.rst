@@ -72,8 +72,7 @@ Status: Stable
 * Update your system::
 
    apt-get update -y
-   apt-get upgrade -y
-   apt-get dist-upgrade -y
+   
 
 2.2. Networking
 ------------
