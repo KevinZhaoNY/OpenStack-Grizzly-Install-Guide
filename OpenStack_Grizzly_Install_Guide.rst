@@ -532,8 +532,6 @@ Status: Stable
 * Update your system::
 
    apt-get update -y
-   apt-get upgrade -y
-   apt-get dist-upgrade -y
 
 * Install ntp service::
 
@@ -708,8 +706,7 @@ Status: Stable
 * Update your system::
 
    apt-get update -y
-   apt-get upgrade -y
-   apt-get dist-upgrade -y
+
 
 * Reboot (you might have new kernel)
 
