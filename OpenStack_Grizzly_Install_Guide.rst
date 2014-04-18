@@ -1089,8 +1089,8 @@ Solution: http://blog.vpetkov.net/2013/08/31/openstack-quantum-open-vswitch-data
 
 10. Further readings
 =======
-http://docs.openstack.org/trunk/openstack-ops/content/network_troubleshooting.html
-http://networkstatic.net/troubleshooting-common-openstack-errors/
-http://techbackground.blogspot.com/2013/05/the-quantum-l3-router-and-floating-ips.html
+http://docs.openstack.org/trunk/openstack-ops/content/network_troubleshooting.html <br>
+http://networkstatic.net/troubleshooting-common-openstack-errors/  <br>
+http://techbackground.blogspot.com/2013/05/the-quantum-l3-router-and-floating-ips.html <br>
 
 
