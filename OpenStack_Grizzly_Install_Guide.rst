@@ -671,7 +671,7 @@ Status: Stable
 
 3.4. OpenVSwitch (Part2)
 ------------------
-* Edit the eth1:2 in /etc/network/interfaces to become like this::
+* Edit the eth0:1 in /etc/network/interfaces to become like this::
 
    # VM internet Access
    auto eth0:1
