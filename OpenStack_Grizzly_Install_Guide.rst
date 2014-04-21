@@ -1096,7 +1096,7 @@ This work has been based on:
 * 1 Offical troubleshooting docs:
 
   http://docs.openstack.org/trunk/openstack-ops/content/network_troubleshooting.html <br>
-  http://docs.openstack.org/trunk/openstack-ops/content/figures/8/figures/neutron_packet_ping.png
+  
 
 * 2 Common openstack errors:
 
