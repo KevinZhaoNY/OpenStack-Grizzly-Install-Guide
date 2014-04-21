@@ -1087,6 +1087,14 @@ This work has been based on:
 
 Solution: http://blog.vpetkov.net/2013/08/31/openstack-quantum-open-vswitch-datapath-for-tunnels-or-patch-ports/
 
+(2)In the external network,network:router_gateway	always shows as DOWN
+
+on network node,  `sudo ovs-vsctl br-get-external-id br-ex` returns nothing, and so br-ex is excluded from the list of ancillary bridges and so the gateway port always shows as DOWN.
+A workaround is to set the bridge-id to br-ex and restart the L2 agent:
+
+sudo ovs-vsctl br-set-external-id br-ex bridge-id br-ex
+sudo service quantum-plugin-openvswitch-agent restart
+
 10. Further readings
 =======
 http://docs.openstack.org/trunk/openstack-ops/content/network_troubleshooting.html <br>
