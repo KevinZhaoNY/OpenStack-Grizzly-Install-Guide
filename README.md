@@ -9,4 +9,6 @@ It's easy, simple and tested. Can't wait? Go check it out by yourself:
 
 ![ScreenShot](http://www.natcom.org/uploadedImages/More_Scholarly_Resources/Doctoral_Program_Resource_Guide/NYU%20Logo.jpg)
 
+Let's get started !~~
+
 https://github.com/KevinZhaoNY/OpenStack-Grizzly-Install-Guide/blob/OVS_MultiNode/OpenStack_Grizzly_Install_Guide.rst
