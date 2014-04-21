@@ -1093,6 +1093,21 @@ This work has been based on:
 =======
 
 
+* 1 Offical troubleshooting docs:
+
+  http://docs.openstack.org/trunk/openstack-ops/content/network_troubleshooting.html <br>
+
+* 2 Common openstack errors:
+
+  http://networkstatic.net/troubleshooting-common-openstack-errors/  <br>
+
+* 3.Excellent article to troubleshoot floating ip &ip-table problem:
+
+  http://techbackground.blogspot.com/2013/05/the-quantum-l3-router-and-floating-ips.html
+  
+
+=====Trouble-shooting notes=====
+  
 (1)ERROR [quantum.plugins.openvswitch.agent.ovs_quantum_agent] Failed to create OVS patch port. Cannot have tunneling enabled on this agent, since this version of OVS does not support tunnels or patch ports. Agent terminated!
 
 Solution: http://blog.vpetkov.net/2013/08/31/openstack-quantum-open-vswitch-datapath-for-tunnels-or-patch-ports/
@@ -1106,16 +1121,5 @@ A workaround is to set the bridge-id to br-ex and restart the L2 agent:
 sudo ovs-vsctl br-set-external-id br-ex bridge-id br-ex
 sudo service quantum-plugin-openvswitch-agent restart
 
-10. Further readings
-
-* 1
-
-  http://docs.openstack.org/trunk/openstack-ops/content/network_troubleshooting.html <br>
-* 2
-
-  http://networkstatic.net/troubleshooting-common-openstack-errors/  <br>
-* 3.Excellent article to troubleshoot floating ip &ip-table problem:
-
-  http://techbackground.blogspot.com/2013/05/the-quantum-l3-router-and-floating-ips.html
 
 
