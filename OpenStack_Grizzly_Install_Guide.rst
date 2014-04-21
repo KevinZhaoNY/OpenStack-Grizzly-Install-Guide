@@ -80,8 +80,8 @@ Status: Stable
 * Only one NIC should have an internet access::
 
    #For Exposing OpenStack API over the internet
-   auto eth0:0
-   iface eth0:0 inet static
+   auto eth0
+   iface eth0 inet static
    address 128.238.64.31
    netmask 255.255.255.0
    gateway 128.238.64.1
@@ -671,11 +671,11 @@ Status: Stable
 
 3.4. OpenVSwitch (Part2)
 ------------------
-* Edit the eth0:1 in /etc/network/interfaces to become like this::
+* Edit the eth0  in /etc/network/interfaces to become like this::
 
    # VM internet Access
-   auto eth0:1
-   iface eth0:1 inet manual
+   auto eth0
+   iface eth0 inet manual
    up ifconfig $IFACE 0.0.0.0 up
    up ip link set $IFACE promisc on
    down ip link set $IFACE promisc off
@@ -686,8 +686,18 @@ Status: Stable
    #Internet connectivity will be lost after this step but this won't affect OpenStack's work
    ovs-vsctl add-port br-ex eth0:1
 
-   #If you want to get internet connection back, you can assign the eth2's IP address to the br-ex in the /etc/network/interfaces file.
-
+   #If you want to get internet connection back, you can assign the eth0's IP address to the br-ex in the /etc/network/interfaces file.
+   auto br-ex
+   iface br-ex inet static
+   address 128.238.64.31
+   netmask 255.255.255.0
+   gateway 128.238.64.1
+   dns-nameservers 8.8.8.8
+   
+   #You have to update the route table and reboot the server after above changes
+   sudo route del -net 128.238.64.0 gw 0.0.0.0 netmask 255.255.255.0 dev eth0
+   sudo reboot
+   
 4. Compute Node
 =========================
 
