@@ -1097,9 +1097,15 @@ sudo ovs-vsctl br-set-external-id br-ex bridge-id br-ex
 sudo service quantum-plugin-openvswitch-agent restart
 
 10. Further readings
-=======
-http://docs.openstack.org/trunk/openstack-ops/content/network_troubleshooting.html <br>
-http://networkstatic.net/troubleshooting-common-openstack-errors/  <br>
-http://techbackground.blogspot.com/2013/05/the-quantum-l3-router-and-floating-ips.html <br>
+
+* 1
+
+  http://docs.openstack.org/trunk/openstack-ops/content/network_troubleshooting.html <br>
+* 2
+
+  http://networkstatic.net/troubleshooting-common-openstack-errors/  <br>
+* 3.Excellent article to troubleshoot floating ip &ip-table problem:
+
+  http://techbackground.blogspot.com/2013/05/the-quantum-l3-router-and-floating-ips.html
 
 
