@@ -995,13 +995,13 @@ Status: Stable
 
 To start your first VM, we first need to create a new tenant, user and internal network. 
 
-* NOTE-1 ::
+* NOTE-1 :
    You could also use Openstack Horizon Web UI to the following job. You don't have to use command line if you feel uncomfortable with it.
-* NOTE-2 ::
+* NOTE-2 :
    You have to add new rules to your security group your new VM are within,so that you could ping and ssh your VM,
         Here is the tutorial : http://docs.openstack.org/user-guide/content/security_groups_add_rule.html
         
-.. image:: http://s29.postimg.org/v63d1a8kl/Screen_Shot_2014_04_24_at_10_30_57_AM.png
+.. image:: http://i.imgur.com/TlwNCON.jpg
 
 * Create a new tenant ::
 
