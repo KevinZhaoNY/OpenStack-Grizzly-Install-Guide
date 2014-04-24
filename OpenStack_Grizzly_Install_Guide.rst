@@ -1001,7 +1001,7 @@ To start your first VM, we first need to create a new tenant, user and internal 
    You have to add new rules to your security group your new VM are within,so that you could ping and ssh your VM,
         Here is the tutorial : http://docs.openstack.org/user-guide/content/security_groups_add_rule.html
         
-.. image:: http://postimg.org/image/qk78sxn1f/
+.. image:: http://s29.postimg.org/v63d1a8kl/Screen_Shot_2014_04_24_at_10_30_57_AM.png
 
 * Create a new tenant ::
 
