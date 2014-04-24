@@ -12,23 +12,6 @@ Authors
 `Kevin Zhao <http://www.linkedin.com/pub/kevin-zhao/51/ab6/906>`_ 
 
 
-
-Table of Contents
-=================
-
-::
-
-  0. What is it?
-  1. Requirements
-  2. Controller Node
-  3. Network Node
-  4. Compute Node
-  5. Your first VM
-  6. Licensing
-  7. Contacts
-  8. Credits
-  9. To do
-
 0. What is it?
 ==============
 
